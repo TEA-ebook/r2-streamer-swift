@@ -3,26 +3,69 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![JazzyDocumentation](https://img.shields.io/badge/Jazzy--Documentation-63%25-lightgrey.svg)](https://readium.github.io/r2-streamer-swift/)
 
-R2-streamer-swift aims at simplifying the usage of numeric publication by parsing and serving them.
+Readium Streamer aims at simplifying the usage of numeric publication by parsing and serving them.
 It takes the publication as input, and generates an accessible [WebPubManifest](https://github.com/readium/webpub-manifest)/object as output.
 
-The project documentation is available [here](https://readium.github.io/r2-streamer-swift/)
+[Changes and releases are documented in the Changelog](CHANGELOG.md)
 
 # Get started
 
+
 ## Adding the library to your iOS project
 
-##### Carthage
+> _Note:_ requires Swift 4.2 (and Xcode 10.1).
 
-Add the following line to your Cartfile
+### Carthage
 
-`github "readium/r2-streamer-swift" "master"`
+[Carthage][] is a simple, decentralized dependency manager for Cocoa. To
+install R2Streamer with Carthage:
 
-Then run `carthage update --platform ios` to fetch and build the dependencies.
+ 1. Make sure Carthage is [installed][Carthage Installation].
 
-##### CocoaPods
+ 2. Update your Cartfile to include the following:
 
-//Todo
+    ```ruby
+    github "readium/r2-streamer-swift" "develop"
+    ```
+
+ 3. Run `carthage update` and
+    [add the appropriate framework][Carthage Usage].
+
+
+[Carthage]: https://github.com/Carthage/Carthage
+[Carthage Installation]: https://github.com/Carthage/Carthage#installing-carthage
+[Carthage Usage]: https://github.com/Carthage/Carthage#adding-frameworks-to-an-application
+
+
+### CocoaPods
+
+[CocoaPods][] is a dependency manager for Cocoa projects. To install
+R2Streamer with CocoaPods:
+
+ 1. Make sure CocoaPods is [installed][CocoaPods Installation]. (R2Streamer
+    requires version 1.0.0 or greater.)
+
+    ```sh
+    # Using the default Ruby install will require you to use sudo when
+    # installing and updating gems.
+    [sudo] gem install cocoapods
+    ```
+
+ 2. Update your Podfile to include the following:
+
+    ```ruby
+    use_frameworks!
+
+    target 'YourAppTargetName' do
+        pod 'R2Streamer', :git => 'https://github.com/readium/r2-streamer-swift.git', :branch => 'develop'
+    end
+    ```
+
+ 3. Run `pod install --repo-update`.
+
+[CocoaPods]: https://cocoapods.org
+[CocoaPods Installation]: https://guides.cocoapods.org/using/getting-started.html#getting-started
+
 
 ##### Import
 
@@ -128,15 +171,14 @@ Supported formats:
 
 **EPUB 2/3/3.1- OEBPS - CBZ**
 
-## Dependencies
+## Dependencies in this module
 
-The project dependencies are managed with [Carthage](https://github.com/Carthage/Carthage).
-Run carthage update --platform ios to fetch and build the dependencies:
+- [R2Shared](https://github.com/readium/r2-shared-swift) : Contains the definitions of shared custom types used across the readium-2 Swift projects.
+- [GCDWebServer](https://github.com/swisspol/GCDWebServer) A modern and lightweight GCD based HTTP 1.1 server designed to be embedded in OS X & iOS apps.
+- [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) Crypto related functions and helpers for Swift implemented in Swift.
+- [Fuzi](https://github.com/edrlab/Fuzi) A fast & lightweight XML & HTML parser in Swift with XPath & CSS support
+- [Minizip](https://github.com/dexman/Minizip) Minizip framework wrapper for iOS, OSX, tvOS, and watchOS.
 
-- [r2-shared-swift](https://github.com/readium/r2-shared-swift) : Contains the definitions of shared custom types used across the readium-2 Swift projects.
-- [swisspol/GCDWebServer](https://github.com/swisspol/GCDWebServer) A modern and lightweight GCD based HTTP 1.1 server designed to be embedded in OS X & iOS apps.
-- [tadija/AEXML](https://github.com/tadija/AEXML) Simple and lightweight XML parser written in Swift.
-- [krzyzanowskim/CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) Crypto related functions and helpers for Swift implemented in Swift.
 
 ## Documentation
 
