@@ -139,8 +139,8 @@ public final class Streamer: Loggable {
     private func openFile(at file: File, with fetcher: Fetcher, credentials: String?, allowUserInteraction: Bool, sender: Any?) -> Deferred<PublicationFile, Publication.OpeningError> {
         func unlock(using protections: [ContentProtection]) -> Deferred<ProtectedFile?, Publication.OpeningError> {
             return deferred {
-                var protectionList = protections
-                guard let protection = protectionList.popFirst() else {
+                var protections = protections
+                guard let protection = protections.popFirst() else {
                     // No Content Protection applied, this file is probably not protected.
                     return .success(nil)
                 }
